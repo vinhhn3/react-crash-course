@@ -20,6 +20,11 @@ const App = () => {
   const [loading, setLoading] = useState(true); // State for loading status
   const [newUserName, setNewUserName] = useState(""); // State for input field (new task)
 
+  // Run on every render
+  useEffect(() => {
+    console.log("Run on every Render!");
+  });
+
   // Fetch users when component mounts
   useEffect(() => {
     const getUsers = async () => {
@@ -27,6 +32,7 @@ const App = () => {
       setUsers(userData);
       setLoading(false);
     };
+    console.log("Run getUsers only once");
     getUsers();
   }, []);
 
